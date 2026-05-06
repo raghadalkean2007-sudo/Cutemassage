@@ -1,1 +1,102 @@
-# Cutemassage
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>رسالة كيوت 💖</title>
+    <style>
+        body {
+            background: #ffe6f2;
+            font-family: "Tahoma";
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            width: 320px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #ffb3d9;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff4da6;
+        }
+
+        p {
+            color: #444;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff4da6;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -10px;
+            color: #ff4da6;
+            font-size: 20px;
+            animation: floatUp 4s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-800px) scale(1.8); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>💖 رسالة لك 💖</h1>
+        <p>
+            حبيت أرسل لك شيء بسيط…  
+            بس عشان أقول إنك شخص غالي ومهم.  
+            وجودك يصنع فرق جميل.
+        </p>
+
+        <a id="runBtn" class="btn">اضغطي لو تقدرين 😏💗</a>
+    </div>
+
+    <script>
+        const btn = document.getElementById("runBtn");
+
+        btn.addEventListener("mouseover", () => {
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            btn.style.position = "absolute";
+            btn.style.left = x + "px";
+            btn.style.top = y + "px";
+        });
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💗";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.fontSize = (20 + Math.random() * 20) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
